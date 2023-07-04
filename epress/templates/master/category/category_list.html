@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Category</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Category Name</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <td>{{ category.pk }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'category_detail' category.pk %}">View</button>
+              <button type="submit" formaction="{% url 'category_edit' category.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'category_delete' category.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'category_add' %}">
+    <button type="submit">Add Category</button>
+  </form>
+{% endblock %}

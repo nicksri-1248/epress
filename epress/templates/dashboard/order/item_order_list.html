@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Item List</h1>
+  {% if items %}
+  <form method="POST">
+    {% csrf_token %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+              <input type="number" name="item" value="0" min="0">
+              <input type="hidden" name="item_id" value="{{ item.id }}">
+            </td>
+          </tr>
+        {% empty %}
+          <li>No items found.</li>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <button type="submit">Place Order</button>
+  </form>
+  {% endif %}
+{% endblock %}

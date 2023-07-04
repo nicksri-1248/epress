@@ -1,0 +1,47 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ city.name }} - Areas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>City</th>
+        <th>Area Name</th>
+        <th>Area Code</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for area in areas %}
+        <tr>
+          <td>{{ area.pk }}</td>
+          <td>{{ area.city }}</td>
+          <td>{{ area.name }}</td>
+          <td>{{ area.code }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'area_detail' area.pk %}">View</button>
+              <button type="submit" formaction="{% url 'area_edit' area.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'area_delete' area.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% empty %}
+      <li>No areas found for this city</li>
+      {% endfor %}
+    </tbody>
+  </table>
+  <!--<ul>
+    {% for area in areas %}
+      <li>{{ area.name }}</li>
+    {% empty %}
+      <li>No areas found for this city</li>
+    {% endfor %}
+  </ul>-->
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Service</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Service Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for service in services %}
+        <tr>
+          <td>{{ service.pk }}</td>
+          <td><a href="{% url 'order_list' service.name %}">{{ service.name }}</a></td>
+
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ item }}</h1>
+  <ul>
+    <li>Service: {{ item.service }}</li>
+    <li>Category: {{ item.category }}</li>
+    <li>Item Name: {{ item.name }}</li>
+    <li>Item Price: {{ item.price }}</li>`
+  </ul>
+  <form>
+    <button formaction="{% url 'item_edit' item.pk %}">Edit</button>
+  </form>
+{% endblock %}

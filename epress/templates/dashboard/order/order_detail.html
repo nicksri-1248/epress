@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>ID - #{{ order_number }}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Date Ordered</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.item }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.date_ordered }}</td>
+          {% csrf_token %}
+        </tr>
+      {% empty %}
+      <li>No orders found</li>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

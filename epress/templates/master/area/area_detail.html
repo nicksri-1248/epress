@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ area }}</h1>
+  <ul>
+    <li>City: {{ area.city }}</li>
+    <li>Area Name: {{ area.name }}</li>
+    <li>Area Code: {{ area.code }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'area_edit' area.pk %}">Edit</button>
+  </form>
+{% endblock %}

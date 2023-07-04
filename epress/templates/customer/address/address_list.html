@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Address</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Address</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in addresses %}
+        <tr>
+          <td>{{ address.pk }}</td>
+          <td>{{ address.address }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'address_detail' address.pk %}">View</button>
+              <button type="submit" formaction="{% url 'address_edit' address.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'address_delete' address.pk %}">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'address_add' %}">
+    <button type="submit">Add Address</button>
+  </form>
+{% endblock %}

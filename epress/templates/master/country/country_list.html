@@ -1,0 +1,55 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Country</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Country Name</th>
+        <th>Country Code</th>
+        <th>Currency</th>
+        <th>Currency Symbol</th>
+        <th>Language</th>
+        <th>Language Code</th>
+        <th>Flag</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for country in countries %}
+        <tr>
+          <td>{{ country.pk }}</td>
+          <td>{{ country.name }}</td>
+          <td>{{ country.code }}</td>
+          <td>{{ country.currency }}</td>
+          <td>{{ country.currency_symbol }}</td>
+          <td>{{ country.language }}</td>
+          <td>{{ country.language_code }}</td>
+          <td>{{ country.flag }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'country_detail' country.pk %}">View</button>
+              <button type="submit" formaction="{% url 'country_edit' country.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'country_delete' country.pk %}">Delete</button>
+            </form>
+          </td>
+
+          {% csrf_token %}
+          <!--<td>
+            <form method="post" action="{% url 'country_delete' pk=country.pk %}">
+
+              <button type="submit">Delete</button>
+            </form>
+          </td>-->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'country_add' %}">
+    <button type="submit">Add Country</button>
+  </form>
+{% endblock %}

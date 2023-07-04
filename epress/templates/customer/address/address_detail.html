@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ address }}</h1>
+  <ul>
+    <li>Address: {{ address.address }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'address_edit' address.pk %}">Edit</button>
+  </form>
+{% endblock %}

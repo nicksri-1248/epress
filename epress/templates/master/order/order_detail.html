@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>ID - #{{ order_number }}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Date Ordered</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.item }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.date_ordered }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="#">View</button>
+              <button type="submit" formaction="#">Edit</button>
+              <button type="submit" formaction="#">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% empty %}
+      <li>No areas found for this city</li>
+      {% endfor %}
+    </tbody>
+  </table>
+  <!--<ul>
+    {% for area in areas %}
+      <li>{{ area.name }}</li>
+    {% empty %}
+      <li>No areas found for this city</li>
+    {% endfor %}
+  </ul>-->
+{% endblock %}
+

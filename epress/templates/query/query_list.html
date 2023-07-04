@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Query</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for query in queries %}
+        <tr>
+          <td>{{ query.pk }}</td>
+          <td>{{ query.name }}</td>
+          <td>{{ query.email }}</td>
+          <td>{{ query.subject }}</td>
+          <td>{{ query.message }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'query_detail' query.pk %}">View</button>
+              <button type="submit" formaction="{% url 'query_edit' query.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'query_delete' query.pk %}">Delete</button>
+            </form>
+          </td>
+
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'query_add' %}">
+    <button type="submit">Add Query</button>
+  </form>
+{% endblock %}

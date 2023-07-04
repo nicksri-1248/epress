@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/slicknav.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/flaticon.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/gijgo.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/animate.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/animated-headline.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/themify-icons.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/slick.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/nice-select.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/style1.css">
+
+  <script>
+  function openNav() {
+    document.querySelector(".side-nav").style.display = "block";
+  }
+  </script>
+
+</head>
+
+<body>
+<!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="http://127.0.0.1:8000/static/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <!-- Logo -->
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="index.html"><img src="http://127.0.0.1:8000/static/img/logo/logo.png" alt=""></a>
+                    </div>
+                    <div class="menu-wrapper  d-flex align-items-center">
+                        <!-- Main-menu -->
+                        <div class="main-menu d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="main/about.html">About</a></li>
+                                    <li><a href="main/services.html">Services</a>
+                                        <ul class="submenu">
+                                            <li><a href="{% url 'hotel' %}">Hotel</a></li>
+                                            <li><a href="{% url 'restaurant' %}">Restaurant</a></li>
+                                            <li><a href="{% url 'hospital' %}">Hospital</a></li>
+                                            <li><a href="{% url 'gym' %}">Gym</a></li>
+                                            <li><a href="{% url 'spa' %}">Spa</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="main/blog.html">Blog</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog_details.html">Blog Details</a></li>
+                                            <li><a href="elements.html">Element</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'query_add' %}">Query</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right d-none d-lg-block">
+                    <a href="#" class="header-btn1"><img src="static/img/icon/call.png" alt=""> (+91) 728 256 266</a>
+                    <a href="{% url 'login' %}" class="header-btn2">Login</a>
+                    <a href="{% url 'register' %}" class="header-btn2">Register</a>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+  <div class="main">
+    {% block content %}
+    {% endblock %}
+  </div>
+<script src="http://127.0.0.1:8000/static/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="http://127.0.0.1:8000/static/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/popper.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="http://127.0.0.1:8000/static/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="http://127.0.0.1:8000/static/js/owl.carousel.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/slick.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="http://127.0.0.1:8000/static/js/wow.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/animated.headline.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.magnific-popup.js"></script>
+
+<!-- Date Picker -->
+<script src="http://127.0.0.1:8000/static/js/gijgo.min.js"></script>
+<!-- Nice-select, sticky -->
+<script src="http://127.0.0.1:8000/static/js/jquery.nice-select.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.sticky.js"></script>
+<!-- Progress -->
+<script src="http://127.0.0.1:8000/static/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="http://127.0.0.1:8000/static/js/jquery.counterup.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/waypoints.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.countdown.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="http://127.0.0.1:8000/static/js/contact.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.form.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.validate.min.js"></script>
+<script src="http://127.0.0.1:8000/static/js/mail-script.js"></script>
+<script src="http://127.0.0.1:8000/static/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="http://127.0.0.1:8000/static/js/plugins.js"></script>
+<script src="http://127.0.0.1:8000/static/js/main.js"></script>
+</body>
+</html>

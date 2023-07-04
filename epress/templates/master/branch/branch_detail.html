@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ branch }}</h1>
+  <ul>
+    <li>Branch Name: {{ branch.name }}</li>
+    <li>Branch Code: {{ branch.code }}</li>
+    <li>Address: {{ branch.address }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'branch_edit' branch.pk %}">Edit</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ city }}</h1>
+  <ul>
+    <li>Country: {{ city.country }}</li>
+    <li>State: {{ city.state }}</li>
+    <li>City Name: {{ city.name }}</li>
+    <li>City Code: {{ city.code }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'city_edit' city.pk %}">Edit</button>
+  </form>
+{% endblock %}

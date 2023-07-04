@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Branch</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Branch Name</th>
+        <th>Branch Code</th>
+        <th>Address</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for branch in branches %}
+        <tr>
+          <td>{{ branch.pk }}</td>
+          <td>{{ branch.name }}</td>
+          <td>{{ branch.code }}</td>
+          <td>{{ branch.address }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'branch_detail' branch.pk %}">View</button>
+              <button type="submit" formaction="{% url 'branch_edit' branch.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'branch_delete' branch.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'branch_add' %}">
+    <button type="submit">Add Branch</button>
+  </form>
+{% endblock %}

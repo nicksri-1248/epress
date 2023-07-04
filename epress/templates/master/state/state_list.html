@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>State</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Country</th>
+        <th>State Name</th>
+        <th>State Code</th>
+        <th>Language</th>
+        <th>Language Code</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for state in states %}
+        <tr>
+          <td>{{ state.pk }}</td>
+          <td>{{ state.country }}</td>
+          <td>{{ state.name }}</td>
+          <td>{{ state.code }}</td>
+          <td>{{ state.language }}</td>
+          <td>{{ state.language_code }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'state_detail' state.pk %}">View</button>
+              <button type="submit" formaction="{% url 'state_edit' state.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'state_delete' state.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'state_add' %}">
+    <button type="submit">Add State</button>
+  </form>
+{% endblock %}

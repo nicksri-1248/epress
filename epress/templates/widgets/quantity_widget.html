@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="input-group">
+  <input type="number" name="{{ widget.name }}" id="{{ widget.id_for_label }}" value="{{ widget.value }}" class="form-control">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default quantity-decrease-btn">-</button>
+  </span>
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default quantity-increase-btn">+</button>
+  </span>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.quantity-increase-btn').click(function() {
+      var input = $(this).parent().siblings('input');
+      var value = parseInt(input.val());
+      input.val(value + 1);
+    });
+
+    $('.quantity-decrease-btn').click(function() {
+      var input = $(this).parent().siblings('input');
+      var value = parseInt(input.val());
+      if (value > 0) {
+        input.val(value - 1);
+      }
+    });
+  });
+</script>

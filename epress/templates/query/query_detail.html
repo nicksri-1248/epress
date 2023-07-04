@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ query }}</h1>
+  <ul>
+    <li>Name: {{ query.name }}</li>
+    <li>Email: {{ query.email }}</li>
+    <li>Subject: {{ query.subject }}</li>
+    <li>Message: {{ query.message }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'query_edit' query.pk %}">Edit</button>
+  </form>
+{% endblock %}

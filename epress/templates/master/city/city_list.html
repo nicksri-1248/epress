@@ -1,0 +1,42 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>City</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>City Name</th>
+        <th>City Code</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for city in cities %}
+        <tr>
+          <td>{{ city.pk }}</td>
+          <td>{{ city.country }}</td>
+          <td>{{ city.state }}</td>
+          <td>{{ city.name }}</td>
+          <td><a href="{% url 'city_area' city.name %}">Area Detail</a></td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'city_detail' city.pk %}">View</button>
+              <button type="submit" formaction="{% url 'city_edit' city.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'city_delete' city.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'city_add' %}">
+    <button type="submit">Add City</button>
+  </form>
+{% endblock %}

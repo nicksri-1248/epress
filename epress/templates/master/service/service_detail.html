@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ service }}</h1>
+  <ul>
+    <li>Service Name: {{ service.name }}</li>
+    <li>Description: {{ service.description }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'service_edit' service.pk %}">Edit</button>
+  </form>
+{% endblock %}

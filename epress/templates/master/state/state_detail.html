@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ state }}</h1>
+  <ul>
+    <li>Country: {{ state.country }}</li>
+    <li>State Name: {{ state.name }}</li>
+    <li>State Code: {{ state.code }}</li>
+    <li>Language: {{ state.language }}</li>
+    <li>Language Code: {{ state.language_code }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'state_edit' state.pk %}">Edit</button>
+  </form>
+{% endblock %}

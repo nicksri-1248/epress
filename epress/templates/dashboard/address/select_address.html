@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<h1>Select Delivery Address</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {% for address in addresses %}
+        <div>
+            <label for="address {{ address.pk }}">
+                <input type="radio" name="address" id="address {{ address.pk }}" value="{{ address.pk }}" required>
+                {{ address }}
+            </label>
+        </div>
+    {% endfor %}
+    <button type="submit">Place Order</button>
+</form>
+{% endblock %}

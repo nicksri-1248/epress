@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Service</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PK</th>
+        <th>Service Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for service in services %}
+        <tr>
+          <td>{{ service.pk }}</td>
+          <td>{{ service.name }}</td>
+          <td>{{ service.description }}</td>
+          <td>
+            <form>
+              <button type="submit" formaction="{% url 'service_detail' service.pk %}">View</button>
+              <button type="submit" formaction="{% url 'service_edit' service.pk %}">Edit</button>
+              <button type="submit" formaction="{% url 'service_delete' service.pk %}">Delete</button>
+            </form>
+          </td>
+          {% csrf_token %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'service_add' %}">
+    <button type="submit">Add Service</button>
+  </form>
+{% endblock %}

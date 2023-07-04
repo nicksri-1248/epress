@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{ customer }}</h1>
+  <ul>
+    <li>Customer Name: {{ customer.name }}</li>
+    <li>Mobile Number: {{ customer.mobile_number }}</li>
+    <li>Gender: {{ customer.gender }}</li>
+  </ul>
+  <form>
+    <button formaction="{% url 'customer_edit' customer.pk %}">Edit</button>
+  </form>
+{% endblock %}

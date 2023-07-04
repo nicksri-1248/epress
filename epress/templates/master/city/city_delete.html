@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Delete city</h1>
+  <p>Are you sure you want to delete {{ city }}?</p>
+  <div style="display: flex; flex-direction: row;">
+    <form method="POST" >
+      {% csrf_token %}
+      <button type="submit" style="margin-right: 10px;">Yes</button>
+    </form>
+    <form>
+      <button type="submit" formaction="{% url 'city_list' %}">No</button>
+    </form>
+  </div>
+{% endblock %}
